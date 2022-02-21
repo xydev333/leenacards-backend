@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Leena Card - Purchase</title>
+    </head>
+    <body>
+        Hi<br/>
+        <br/>
+        You have successfully purchased (<%=payload.cardName%> - <%=payload.amount%>) from leena card and please note your code as below<br/>
+        <br/>
+        <% for (var i = 0; i < payload.cards.length;  i++ ) { %>
+            Card Name: <%=payload.cardName%><br/>
+            Card Number: <%=payload.cards[i]%><br/>
+            <br/>
+        <% } %>
+        <br/>
+        Thank you for your order from Leena Cards<br/>
+        <br/>
+    </body>
+</html>

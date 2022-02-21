@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Payment - IncomeShows</title>
+    <script type="text/javascript" src="https://checkout.razorpay.com/v1/razorpay.js"></script>
+    <style>
+      body {
+        background-color: black !important;
+      }
+      .loader-container {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .loader-img {
+        width: 42px;
+        height: auto;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: black;">
+  <div class="loader-container">
+    <img class="loader-img" src="/images/loader.gif" />
+  </div>
+
+     
+   <script type="text/javascript">
+      var text = 'hello';
+      // console.log(text);
+    </script>
+
+     <script type="text/javascript">
+      // console.log('yo');
+      function init() {
+        // console.log('init()1;');
+        var options =  <%- payOptions.options %>;
+        var rzpRequest = <%- payOptions.rzpRequest %>;
+        // console.log('init() called options ', options);
+        // console.log('init() called rzpRequest ', rzpRequest);
+        var rzp = new window.Razorpay(options);
+        // console.log('hahha', rzp);
+        // rzp.open();
+        // rzp.init();
+        rzp.createPayment(rzpRequest);
+        rzp.on('payment.success', function(resp) {
+          // console.log('Payment Successfull=============================');
+          // resolve(resp);
+        });
+
+        rzp.on('payment.error', function(err) {
+          // console.log('Payment Error=============================');
+          // reject(err);
+        });
+      }
+
+      setTimeout(function() {
+        init();
+      }, 2000);
+    </script>
+  </body>
+
+</html>

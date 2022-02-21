@@ -1,0 +1,13 @@
+{
+    "name": "icards-api-1198",
+    "args": ["--env=development", "--port=1198"],
+    "script": "server.js",
+    "max_restarts": 50,
+    "max_memory": "500M",
+    "exec_mode": "fork",
+    "autorestart": true,
+    "env": {
+      "PORT": "1198"
+    }
+  }
+  
